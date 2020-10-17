@@ -9,9 +9,9 @@ for i in numbers:   # 'i' as temp variable for numbers
     elif i % 5 ==0:  # if the element of a list is multiple of 5 then it will return 0.
         print('Buzz')
 
-    elif i > 1:
+    elif i > 1:  # Since 1 is not a prime number so the remaining value will be checked by the statement.
         for b in range(2, i):
-            if (i % b) == 0:
+            if (i % b) == 0: # What's happening here is : (n % 2 % n) will always return 1 if it is a prime number.
                 break
         else:
             print("Prime")
