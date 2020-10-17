@@ -11,8 +11,8 @@ for i in numbers:   # 'i' as temp variable for numbers
 
     elif i > 1:  # Since 1 is not a prime number so the remaining value will be checked by the statement.
         for b in range(2, i):
-            if (i % b) == 0: # What's happening here is : (n % 2 % n) will always return 1 if it is a prime number.
-                break
+            if (i % b) == 0:  # What's happening here is : (n % 2 % n) will always return 1 if it is a prime number.
+                break  # if not break it will print multiples of 2
         else:
             print("Prime")
 
