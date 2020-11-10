@@ -58,12 +58,11 @@ while True:
             selected_Word.insert(selected_Word.index(get_User_Input), '_')
             del selected_Word[selected_Word.index(get_User_Input)]
 
-            # to append every correct guess into the player's list
-            for number in range(len(get_User_Input)):
-                Player_One_Guess.append(get_User_Input[number])
+
+
 
             if ''.join(clue) == dummy:
-                print('Win')
+                print(f'Player: {Player} Win')
                 break
 
         #  for full word
@@ -73,16 +72,14 @@ while True:
 
                 for i in range(len(multiple_Inputs)):
                     if multiple_Inputs[i] in ''.join(selected_Word):
+                        Player_One_Guess.append(get_User_Input[i])
                         clue[selected_Word.index(multiple_Inputs[i])] = multiple_Inputs[i]
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-                        # to append every correct guess into the player's list
-                        for number in range(len(get_User_Input)):
-                            Player_One_Guess.append(get_User_Input[number])
 
                     if ''.join(clue) == dummy:
-                        print('Win')
+                        print(f'Player: {Player} Win')
                         break
         # for n letters
             else:
@@ -90,24 +87,27 @@ while True:
                 for i in range(len(multiple_Inputs)):
 
                     if multiple_Inputs[i] in ''.join(selected_Word):
+                        Player_One_Guess.append(get_User_Input[i])
                         clue[selected_Word.index(multiple_Inputs[i])] = multiple_Inputs[i]
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-                        # to append every correct guess into the player's list
-                        for number in range(len(get_User_Input)):
-                            Player_One_Guess.append(get_User_Input[number])
 
                         if ''.join(clue) == dummy:
-                            print('Win')
+                            print(f'Player: {Player} Win')
                             break
                     else:
-
-                        print("No it doesn't exists in the word.")
+                        if multiple_Inputs[i] in ''.join(Player_One_Guess):
+                            print(f'{multiple_Inputs[i]} already has been guessed by Player 1')
+                        elif multiple_Inputs[i] in ''.join(Player_Two_Guess):
+                            print(f'{multiple_Inputs[i]} already has been guessed by Player 2')
+                        else:
+                            print(f"No {multiple_Inputs[i]} doesn't exists in the word.")
                 if ''.join(clue) == dummy:
                     break
             print(''.join(clue))
-        print(Player_One_Guess)
+
+
         Player = 2
 
     else:
@@ -123,12 +123,9 @@ while True:
             selected_Word.insert(selected_Word.index(get_User_Input), '_')
             del selected_Word[selected_Word.index(get_User_Input)]
 
-            # to append every correct guess into the player's list
-            for number in range(len(get_User_Input)):
-                Player_Two_Guess.append(get_User_Input[number])
 
             if ''.join(clue) == dummy:
-                print('Win')
+                print(f'Player: {Player} Win')
                 break
 
         else:
@@ -137,39 +134,40 @@ while True:
 
                 for i in range(len(multiple_Inputs)):
                     if multiple_Inputs[i] in ''.join(selected_Word):
+                        Player_Two_Guess.append(get_User_Input[i])
                         clue[selected_Word.index(multiple_Inputs[i])] = multiple_Inputs[i]
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-                        # to append every correct guess into the player's list
-                        for number in range(len(get_User_Input)):
-                            Player_Two_Guess.append(get_User_Input[number])
 
                     if ''.join(clue) == dummy:
-                        print('Win')
+                        print(f'Player: {Player} Win')
                         break
             else:
                 multiple_Inputs = get_User_Input
                 for i in range(len(multiple_Inputs)):
 
                     if multiple_Inputs[i] in ''.join(selected_Word):
+                        Player_Two_Guess.append(get_User_Input[i])
                         clue[selected_Word.index(multiple_Inputs[i])] = multiple_Inputs[i]
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-                        # to append every correct guess into the player's list
-                        for number in range(len(get_User_Input)):  #
-                            Player_Two_Guess.append(get_User_Input[number])
 
                         if ''.join(clue) == dummy:
-                            print('Win')
+                            print(f'Player: {Player} Win')
                             break
                     else:
-                        print("No it doesn't exists in the word.")
+                        if multiple_Inputs[i] in ''.join(Player_One_Guess):
+                            print(f'{multiple_Inputs[i]} already been has guessed by Player 1')
+                        elif multiple_Inputs[i] in ''.join(Player_Two_Guess):
+                            print(f'{multiple_Inputs[i]} already been has guessed by Player 2')
+                        else:
+                            print(f"No {multiple_Inputs[i]} doesn't exists in the word.")
                 if ''.join(clue) == dummy:
                     break
             print(''.join(clue))
-        print(Player_Two_Guess)
+
         Player = 1
 
     if ''.join(clue) == dummy:
