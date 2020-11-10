@@ -30,14 +30,13 @@ def random_Word():
 selected_Word = list(random_Word())
 print(selected_Word)
 
-
 dummy = (''.join(selected_Word))
 
 clue = list('-' * len(selected_Word))
 
 Player_One_Guess = []  # stores the values guessed by Player 1
 Player_Two_Guess = []  # stores the values guessed by Player 2
-AI_Guess = []          # stores the values guessed by AI
+AI_Guess = []  # stores the values guessed by AI
 
 print(''.join(clue))
 
@@ -58,9 +57,6 @@ while True:
             selected_Word.insert(selected_Word.index(get_User_Input), '_')
             del selected_Word[selected_Word.index(get_User_Input)]
 
-
-
-
             if ''.join(clue) == dummy:
                 print(f'Player: {Player} Win')
                 break
@@ -77,11 +73,10 @@ while True:
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-
                     if ''.join(clue) == dummy:
                         print(f'Player: {Player} Win')
                         break
-        # for n letters
+            # for n letters
             else:
                 multiple_Inputs = get_User_Input
                 for i in range(len(multiple_Inputs)):
@@ -92,7 +87,6 @@ while True:
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-
                         if ''.join(clue) == dummy:
                             print(f'Player: {Player} Win')
                             break
@@ -102,11 +96,10 @@ while True:
                         elif multiple_Inputs[i] in ''.join(Player_Two_Guess):
                             print(f'{multiple_Inputs[i]} already has been guessed by Player 2')
                         else:
-                            print(f"No {multiple_Inputs[i]} doesn't exists in the word.")
+                            print(f"No {multiple_Inputs[i]} doesnt exists in the word.")
                 if ''.join(clue) == dummy:
                     break
             print(''.join(clue))
-
 
         Player = 2
 
@@ -123,7 +116,6 @@ while True:
             selected_Word.insert(selected_Word.index(get_User_Input), '_')
             del selected_Word[selected_Word.index(get_User_Input)]
 
-
             if ''.join(clue) == dummy:
                 print(f'Player: {Player} Win')
                 break
@@ -139,7 +131,6 @@ while True:
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-
                     if ''.join(clue) == dummy:
                         print(f'Player: {Player} Win')
                         break
@@ -153,7 +144,6 @@ while True:
                         selected_Word.insert(selected_Word.index(multiple_Inputs[i]), '_')
                         del selected_Word[selected_Word.index(multiple_Inputs[i])]
 
-
                         if ''.join(clue) == dummy:
                             print(f'Player: {Player} Win')
                             break
@@ -163,7 +153,7 @@ while True:
                         elif multiple_Inputs[i] in ''.join(Player_Two_Guess):
                             print(f'{multiple_Inputs[i]} already been has guessed by Player 2')
                         else:
-                            print(f"No {multiple_Inputs[i]} doesn't exists in the word.")
+                            print(f"No {multiple_Inputs[i]} doesnt exists in the word.")
                 if ''.join(clue) == dummy:
                     break
             print(''.join(clue))
