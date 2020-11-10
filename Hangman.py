@@ -160,13 +160,22 @@ print(''.join(clue))
 
 Player = 1
 
+Score = 0
+
+Player_One_Life = 8
+Player_Two_Life = 8
+
 while True:
+
     print(f"\nPlayer {Player} turn.")
+
     if Player == 1:
+        print(hangman_frames[8 - Player_One_Life])
         get_User_Input = input('Guess the letter or guess the whole word: ').lower()
 
         # for 1 letter
         if get_User_Input in selected_Word:
+            Player_One_Guess.append(get_User_Input)
             # will replace the index of selected word with user input if the input exist in the selected word.
             clue[selected_Word.index(get_User_Input)] = get_User_Input
             print(''.join(clue))
@@ -215,6 +224,7 @@ while True:
                             print(f'{multiple_Inputs[i]} already has been guessed by Player 2')
                         else:
                             print(f"No {multiple_Inputs[i]} doesnt exists in the word.")
+                            Player_One_Life -= 1
                 if ''.join(clue) == dummy:
                     break
             print(''.join(clue))
@@ -222,10 +232,12 @@ while True:
         Player = 2
 
     else:
+        print(hangman_frames[8 - Player_Two_Life])
         get_User_Input = input('Guess the letter or guess the whole word: ').lower()
 
         # for 1 word
         if get_User_Input in selected_Word:
+            Player_Two_Guess.append(get_User_Input)
             # will replace the index of selected word with user input if the input exist in the selected word.
             clue[selected_Word.index(get_User_Input)] = get_User_Input
             print(''.join(clue))
@@ -272,7 +284,10 @@ while True:
                             print(f'{multiple_Inputs[i]} already been has guessed by Player 2')
                         else:
                             print(f"No {multiple_Inputs[i]} doesnt exists in the word.")
+                            Player_Two_Life -= 1
                 if ''.join(clue) == dummy:
+                    break
+                if Player_Two_Life == 0:
                     break
             print(''.join(clue))
 
