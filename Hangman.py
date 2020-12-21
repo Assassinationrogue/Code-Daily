@@ -146,7 +146,7 @@ def random_Word():
 
 
 selected_Word = list(random_Word())
-print(selected_Word)
+
 
 dummy = (''.join(selected_Word))
 dummy2 = []
